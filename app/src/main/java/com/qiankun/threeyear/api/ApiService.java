@@ -20,7 +20,6 @@ public interface ApiService {
      * 登录接口
      */
     @FormUrlEncoded
-    @Headers({"url_name:user"})
     @POST("sys/loginToApp")
     Observable<BaseResponse<LoginBean>> loginToApp(@FieldMap Map<String, Object> options);
 

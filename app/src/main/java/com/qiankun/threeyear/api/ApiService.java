@@ -7,8 +7,10 @@ import java.util.Map;
 import io.reactivex.Observable;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.QueryMap;
 
 /**
  * 通用的的api接口 </p>
@@ -193,12 +195,11 @@ public interface ApiService {
 //    Observable<ResponseBody> downLoadFileSize(@Url String fileUrl);
 //
 //
-//    /**
-//     * 首页信息
-//     */
-//    @Headers({"url_name:user"})
-//    @GET("student/getHome")
-//    Observable<BeanModule<HomeBean>> getHome(@QueryMap Map<String, Object> options);
+    /**
+     * 首页信息
+     */
+    @GET("student/getHome")
+    Observable<BaseResponse<HomeBean>> getHome(@QueryMap Map<String, Object> options);
 
 
 

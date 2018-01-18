@@ -1,16 +1,18 @@
-package com.qiankun.threeyear;
+package com.qiankun.threeyear.main.fragment;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
-import com.blankj.utilcode.util.ToastUtils;
+import com.qiankun.threeyear.R;
 import com.qiankun.threeyear.api.ApiService;
 import com.qiankun.threeyear.api.HomeBean;
 import com.qiankun.threeyear.api.LoginBean;
-import com.qiankun.threeyear.base.BaseActivity;
+import com.qiankun.threeyear.base.BaseFragment;
 import com.qiankun.threeyear.core.response.BaseResponse;
 import com.qiankun.threeyear.core.retrofit.RetrofitHelper;
 import com.qiankun.threeyear.core.rxjava.BaseObserver;
@@ -20,26 +22,39 @@ import com.qiankun.threeyear.wiget.dialog.IProgressDialog;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends BaseActivity {
+/**
+ * Created by QKun on 2018/1/18.
+ */
 
+public class OneFragment extends BaseFragment {
+    public static final String ARGUMENT = "one";
+    private TextView mText;
+
+    public static OneFragment newInstance(String argument) {
+        Bundle bundle = new Bundle();
+        bundle.putString(ARGUMENT, argument);
+        OneFragment oneFragment = new OneFragment();
+        oneFragment.setArguments(bundle);
+        return oneFragment;
+    }
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        TextView text = findViewById(R.id.text);
-        text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View rootView = LayoutInflater.from(mContext).inflate(R.layout.fragment_one, container, false);
+        mText = rootView.findViewById(R.id.text);
+        initdata();
+        return rootView;
+    }
+
+    private void initdata() {
+        login();
     }
 
     private void login() {
@@ -71,6 +86,7 @@ public class MainActivity extends BaseActivity {
                     protected void onSuccess(HomeBean homeBean) {
                         homeBean.getSocial().getContent();
                         LogUtils.i(homeBean.getSocial().getContent());
+                        mText.setText(homeBean.getSocial().getContent());
                     }
                 });
 

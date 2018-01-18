@@ -38,6 +38,10 @@ dependencies {
     //rxlife
     compile 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
     compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
-
+    //工具类
     compile 'com.blankj:utilcode:1.11.1'
+    //BaseRecyclerViewAdapterHelper
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.28'
+    //系统提供的底部菜单栏
+    compile 'com.ashokvarma.android:bottom-navigation-bar:2.0.2'
 }

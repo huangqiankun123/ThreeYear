@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.qiankun.threeyear.wiget.TabBar_Mains
+        android:id="@+id/one_mains"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:icon="@drawable/tebbar_mains_news"
+        app:name="@string/news">
+    </com.qiankun.threeyear.wiget.TabBar_Mains>
+
+    <com.qiankun.threeyear.wiget.TabBar_Mains
+        android:id="@+id/two_mains"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:icon="@drawable/tebbar_mains_wechat"
+        app:name="@string/wechat">
+    </com.qiankun.threeyear.wiget.TabBar_Mains>
+
+    <!--<ImageView-->
+    <!--android:id="@+id/add_mains"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/gray"-->
+    <!--android:src="@mipmap/ic_launcher"-->
+    <!--android:layout_height="match_parent"/>-->
+
+    <com.qiankun.threeyear.wiget.TabBar_Mains
+        android:id="@+id/three_mains"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:icon="@drawable/tebbar_mains_find"
+        app:name="@string/find">
+    </com.qiankun.threeyear.wiget.TabBar_Mains>
+
+    <com.qiankun.threeyear.wiget.TabBar_Mains
+        android:id="@+id/four_mains"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:icon="@drawable/tebbar_mains_my"
+        app:name="@string/my">
+    </com.qiankun.threeyear.wiget.TabBar_Mains>
+</LinearLayout>

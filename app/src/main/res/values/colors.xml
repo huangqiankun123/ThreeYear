@@ -68,4 +68,6 @@
 
     <color name="imgPreviewHeadBg">#A6000000</color>
     <color name="imgPreviewBottomBg">#A6000000</color>
+
+    <color name="divider">#BDBDBD</color>
 </resources>

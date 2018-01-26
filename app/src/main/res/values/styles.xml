@@ -17,4 +17,10 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
+    <!--底部Tabbar菜单栏的自定义属性-->
+    <declare-styleable name="TabBar_Attr">
+        <attr name="icon" format="reference"/>
+        <attr name="name" format="string"/>
+    </declare-styleable>
+
 </resources>

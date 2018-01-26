@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.qiankun.threeyear.R;
 import com.qiankun.threeyear.api.ApiService;
 import com.qiankun.threeyear.api.HomeBean;
@@ -21,6 +22,7 @@ import com.qiankun.threeyear.wiget.dialog.IProgressDialog;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -48,13 +50,14 @@ public class OneFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = LayoutInflater.from(mContext).inflate(R.layout.fragment_one, container, false);
-        mText = rootView.findViewById(R.id.text);
         initdata();
         return rootView;
     }
 
     private void initdata() {
-        login();
+        LogUtils.i("我第一次进入");
+        ToastUtils.showShort("我第一次进入");
+//        login();
     }
 
     private void login() {
@@ -81,12 +84,13 @@ public class OneFragment extends BaseFragment {
                     }
                 })
                 .observeOn(AndroidSchedulers.mainThread())
+                .throttleFirst(2, TimeUnit.SECONDS)  //2s内只会执行一次 防抖动效果
                 .subscribe(new BaseObserver<HomeBean>(progressDialog) {
                     @Override
                     protected void onSuccess(HomeBean homeBean) {
-                        homeBean.getSocial().getContent();
-                        LogUtils.i(homeBean.getSocial().getContent());
-                        mText.setText(homeBean.getSocial().getContent());
+//                        homeBean.getSocial().getContent();
+//                        LogUtils.i(homeBean.getSocial().getContent());
+//                        mText.setText(homeBean.getSocial().getContent());
                     }
                 });
 

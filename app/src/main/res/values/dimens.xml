@@ -4,6 +4,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="menubar_height">32dp</dimen>
+
     <!-- App 统一字体大小     超  小 号-->
     <dimen name="textSize_small_much">12sp</dimen>
     <!-- App 统一字体大小     小号-->
